@@ -1,4 +1,4 @@
-blog-djangoID
+Blog-Django-Indonesia
 =============
 
 Repositori resmi Blog Django indonesia
