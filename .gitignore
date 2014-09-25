@@ -1,0 +1,9 @@
+# ignore compiled python files
+*.pyc
+
+# ignore vim swapfiles
+*.swo
+*.swp
+
+# ignore settings file
+/portal/settings.py
