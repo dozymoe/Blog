@@ -4,6 +4,7 @@ from django_markdown.admin import MarkdownModelAdmin
 
 
 class PostAdmin(MarkdownModelAdmin):
+    exclude = ('author', )
     list_display = ['title', 'author']
     search_fields = ['title', 'author']
     prepopulated_fields = {"slug": ("title",)}
