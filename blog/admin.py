@@ -14,8 +14,10 @@ class PostAdmin(MarkdownModelAdmin):
             obj.author = request.user
         obj.save()
 
+
 class CategoryAdmin(admin.ModelAdmin):
-	list_display = ['name']
+    list_display = ['name']
+
 
 admin.site.register(Post, PostAdmin)
 admin.site.register(Category, CategoryAdmin)
