@@ -4,7 +4,6 @@ from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
 
-
 class Category(models.Model):
     name = models.CharField(max_length=30, unique=True)
     is_active = models.BooleanField(default=True)
@@ -18,7 +17,7 @@ class Category(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=200)
-    slug = models.CharField(max_length=200, unique=True)
+    slug = models.SlugField(max_length=200, unique=True)
     category = models.ForeignKey(Category, related_name='posts')
     content = models.TextField()
     publish = models.BooleanField(default=True)
