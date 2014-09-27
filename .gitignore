@@ -5,5 +5,9 @@
 *.swo
 *.swp
 
+
 # ignore settings file
 /portal/settings.py
+
+# ignore local_settings file
+local_settings.py
