@@ -1,0 +1,9 @@
+# ignore compiled python files
+*.pyc
+
+# ignore vim swapfiles
+*.swo
+*.swp
+
+# ignore local_settings file
+local_settings.py
