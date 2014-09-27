@@ -21,7 +21,7 @@ class Post(models.Model):
     slug = models.CharField(max_length=200, unique=True)
     category = models.ForeignKey(Category, related_name='posts')
     content = models.TextField()
-    is_active = models.BooleanField(default=True)
+    publish = models.BooleanField(default=True)
     author = models.ForeignKey(User, related_name='posts')
     created = models.DateTimeField(auto_now_add=True)
 

@@ -20,6 +20,7 @@ class Migration(migrations.Migration):
                 ('is_active', models.BooleanField(default=True)),
             ],
             options={
+                'verbose_name_plural': 'Categories',
             },
             bases=(models.Model,),
         ),
@@ -30,7 +31,7 @@ class Migration(migrations.Migration):
                 ('title', models.CharField(max_length=200)),
                 ('slug', models.CharField(unique=True, max_length=200)),
                 ('content', models.TextField()),
-                ('is_active', models.BooleanField(default=True)),
+                ('publish', models.BooleanField(default=True)),
                 ('created', models.DateTimeField(auto_now_add=True)),
                 ('author', models.ForeignKey(related_name=b'posts', to=settings.AUTH_USER_MODEL)),
                 ('category', models.ForeignKey(related_name=b'posts', to='blog.Category')),
