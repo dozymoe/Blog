@@ -4,6 +4,7 @@ from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
 from django.template.defaultfilters import slugify
+from taggit.managers import TaggableManager
 
 
 class Category(models.Model):
@@ -29,6 +30,7 @@ class Post(models.Model):
     publish = models.BooleanField(default=True)
     author = models.ForeignKey(User, related_name='posts')
     created = models.DateTimeField(auto_now_add=True)
+    tags = TaggableManager()
 
     def __unicode__(self):
         return self.title
