@@ -1,3 +1,76 @@
-from django.test import TestCase
+"""integration tests for blog app"""
 
-# Create your tests here.
+from django.contrib.auth import get_user_model
+from django.core.exceptions import ObjectDoesNotExist
+from django.test import Client, TestCase, override_settings
+
+BASE_URL_ADMIN = '/admin/blog/post/'
+
+USERS = {
+    'superuser': {
+        'username': 'admin',
+        'password': 'admin',
+        'email': 'admin@example.com',
+    },
+}
+
+
+class TestCaseBase(TestCase):
+    """helps create fixtures"""
+
+    maxDiff = None
+
+    @staticmethod
+    @override_settings(PASSWORD_HASHERS=(
+        'django.contrib.auth.hashers.MD5PasswordHasher',
+    ))
+    def create_users():
+        """create users from global USERS"""
+        for u in USERS:
+            user = USERS[u]
+            try:
+                get_user_model().objects.get(username=user['username'])
+            except ObjectDoesNotExist:
+                if u == 'superuser':
+                    get_user_model().objects.create_superuser(**user)
+                else:
+                    get_user_model().objects.create_user(**user)
+
+    @classmethod
+    def setUpClass(cls):
+        """prepare test environment"""
+
+        # setup fixtures
+        cls.create_users()
+
+
+class PostAdminView(TestCaseBase):
+    """integration tests for Post model"""
+
+    def test_admin_add(self):
+        """check django admin add page"""
+        c = Client()
+        url = BASE_URL_ADMIN + 'add/'
+
+        # test as anonymous
+        response = c.get(url)
+        self.assertEqual(response.status_code, 302) # this should've been 403
+
+        # test as superuser
+        self.assertEqual(c.login(**USERS['superuser']), True)
+        response = c.get(url)
+        self.assertEqual(response.status_code, 200)
+
+    def test_admin_list_change(self):
+        """check django admin list page"""
+        c = Client()
+        url = BASE_URL_ADMIN
+
+        # test as anonymous
+        response = c.get(url)
+        self.assertEqual(response.status_code, 302) # this should've been 403
+
+        # test as superuser
+        self.assertEqual(c.login(**USERS['superuser']), True)
+        response = c.get(url)
+        self.assertEqual(response.status_code, 200)
