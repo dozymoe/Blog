@@ -21,9 +21,6 @@ class TestCaseBase(TestCase):
     maxDiff = None
 
     @staticmethod
-    @override_settings(PASSWORD_HASHERS=(
-        'django.contrib.auth.hashers.MD5PasswordHasher',
-    ))
     def create_users():
         """create users from global USERS"""
         for u in USERS:

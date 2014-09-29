@@ -10,6 +10,9 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+import sys
+
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
 
@@ -92,7 +95,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+if 'test' in sys.argv:
+    PASSWORD_HASHERS = (
+        'django.contrib.auth.hashers.MD5PasswordHasher',
+    )
+
+
 try:
-    from local_settings import *
+    from local_settings import *  # noqa
 except ImportError:
     pass
