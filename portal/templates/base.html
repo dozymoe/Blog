@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+<html{% block html_attributes %}{% endblock %}>
+  <meta charset="utf-8">
+  {% block html_meta %}
+  <title>Blog</title>
+  {% endblock %}
+  <meta name="viewport" content="width=device-width">
+  {% block javascript_head %}{% endblock %}
+  <link rel="stylesheets" type="text/css" href="{% static 'css/bootstrap.min.css' %}">
+  {% block stylesheets %}{% endblock %}
+
+  <body{% block body_attributes %}{% endblock %}>
+    {% block header %}{% endblock %}
+
+    {% block body %}
+      {% block content_title %}{% endblock %}
+      {% block content %}{% endblock %}
+    {% endblock %}
+
+    {% block footer %}{% endblock %}
+    {% block messages %}{% endblock %}
+    {% block javascripts %}{% endblock %}
+  </body>
+</html>

@@ -65,3 +65,16 @@ class PostAdminView(TestCaseBase):
         self.assertEqual(c.login(**USERS['superuser']), True)
         response = c.get(url)
         self.assertEqual(response.status_code, 200)
+
+
+class PostNormalView(TestCase):
+    """integration tests for Post model"""
+
+    def test_index(self):
+        """check index page for Post"""
+        c = Client()
+        url = '/'
+
+        # test as anonymous
+        response = c.get(url)
+        self.assertEqual(response.status_code, 200)
