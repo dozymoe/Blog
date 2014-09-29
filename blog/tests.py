@@ -2,17 +2,11 @@
 
 from django.contrib.auth import get_user_model
 from django.core.exceptions import ObjectDoesNotExist
-from django.test import Client, TestCase, override_settings
+from django.test import Client, TestCase
+
+from portal.fixtures import USERS
 
 BASE_URL_ADMIN = '/admin/blog/post/'
-
-USERS = {
-    'superuser': {
-        'username': 'admin',
-        'password': 'admin',
-        'email': 'admin@example.com',
-    },
-}
 
 
 class TestCaseBase(TestCase):
