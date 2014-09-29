@@ -1,12 +1,40 @@
 {% extends 'base.html' %}
 
 {% block javascript_head %}
-<script>
-var WebFontConfig = {
-  google: {
-    families: ['Open+Sans:400,400italic,600:latin'],
-  },
-};
-</script>
-<script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
+  <script>
+  var WebFontConfig = {
+    google: {
+      families: ['Open+Sans:400,400italic,600:latin'],
+    },
+  };
+  </script>
+  <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
 {% endblock %}
+
+{% block stylesheets %}
+  {{ block.super }}
+  <style>
+    body {
+      background-color: #092e20;
+      color: #fff;
+      font-family: "Open Sans", sans-serif;
+      font-size: 1em;
+      line-height: 1.5;
+      margin: 0;
+    }
+    html {
+      font-size: 100%;
+    }
+    .page-body {
+      padding-left: 4em;
+      padding-right: 4em;
+    }
+    .page-header {
+      background-color: #fff;
+      color: #000;
+      padding-left: 4em;
+      padding-right: 4em;
+    }
+  </style>
+{% endblock %}
+

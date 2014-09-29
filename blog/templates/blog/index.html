@@ -1,5 +1,11 @@
 {% extends 'blog/base.html' %}
-{% load i18n %}
+{% load i18n staticfiles %}
+
+{% block header %}
+  <header class="page-header">
+    <img src="{% static 'logo.png' %}" alt="Django Indonesia">
+  </header>
+{% endblock %}
 
 {% block content_title %}
   <h1>Latest blog posts</h1>
