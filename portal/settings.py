@@ -40,11 +40,15 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
-    #--Custom App--#
-    'blog',
+    #--3rd Party App--#
     'django_markdown',
     'django_social_share',
 
+    #--Custom App--#
+    'blog',
+
+    #--Global Assets--#
+    'asset',
 )
 
 MIDDLEWARE_CLASSES = (
