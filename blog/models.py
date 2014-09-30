@@ -1,9 +1,8 @@
 """database definition for Post and Category model"""
 
-from datetime import datetime
 from django.contrib.auth.models import User
 from django.db import models
-from django.template.defaultfilters import slugify
+from django.utils.text import slugify
 from taggit.managers import TaggableManager
 
 
@@ -18,6 +17,12 @@ class Category(models.Model):
 
     def __unicode__(self):
         return self.name
+
+    @staticmethod
+    def fixtures():
+        """get fixture to be used in tests"""
+        from .fixtures import CATEGORIES
+        return CATEGORIES
 
 
 class Post(models.Model):
@@ -37,9 +42,13 @@ class Post(models.Model):
 
     def save(self, force_insert=False, force_update=False, using=None,
              update_fields=None):
-        created_date = datetime.now()
-        self.slug = '{0}/{1}/{2}/{3}/{4}'.format(
-            created_date.year, created_date.month, created_date.day, self.id, slugify(self.title)
-        )
+        if not getattr(self, 'slug'):
+            self.slug = slugify(self.title)
         super(Post, self).save(force_insert=force_insert, force_update=force_update,
                                using=using, update_fields=update_fields)
+
+    @staticmethod
+    def fixtures():
+        """get fixture to be used in tests"""
+        from .fixtures import POSTS
+        return POSTS
