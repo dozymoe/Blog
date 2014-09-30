@@ -43,6 +43,7 @@ INSTALLED_APPS = (
     #--3rd Party App--#
     'django_markdown',
     'django_social_share',
+    'taggit',
 
     #--Custom App--#
     'blog',
