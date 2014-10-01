@@ -26,3 +26,9 @@ DATABASES = {
 if 'test' in sys.argv:
     DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
 ```
+
+###Lorem ipsum
+Ketika baru instalasi dan mau lihat situsnya dengan berisi konten, bisa coba perintah
+`python manage.py blog_create_fixtures`. Situs akan diisikan dengan konten lorem
+ipsum, yang kalimatnya sendiri biasanya tidak ada artinya, hanya sebagai pembantu
+visual untuk desain.
