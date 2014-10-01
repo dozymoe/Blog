@@ -1,21 +1,22 @@
 {% extends 'blog/base.html' %}
-{% load i18n staticfiles %}
+{% load i18n django_markdown %}
 
-{% block header %}
-  <header class="page-header">
-    <img src="{% static 'logo.png' %}" alt="Django Indonesia">
-  </header>
+{% block html_meta %}
+  <title>{% trans "Latest blog posts" %}</title>
 {% endblock %}
 
 {% block content_title %}
-  <h1>Latest blog posts</h1>
+  <h1>{% trans "Latest blog posts" %}</h1>
 {% endblock %}
 
 {% block content %}
   {% if object_list.exists %}
     <ol>
       {% for object in object_list %}
-        <li>{{ object.title }}
+        <li>
+          <a href="{% url 'blog:detail' slug=object.slug %}">{{ object.title }}</a>
+          {{ object.description|markdown|safe }}
+        </li>
       {% endfor %}
     </ol>
   {% else %}

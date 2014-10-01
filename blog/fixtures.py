@@ -63,6 +63,10 @@ Icta nec suspiria longis requirenti eademque, in si hanc ore puella loquor. Cum
 fuga Hecateia steterant lugent incidis summam et cursus ille quotiens traxit
 placet licet; sublimis.""",
 
+    'description': """
+Lorem markdownum quaeritur acuta, crinibus corpora profanus, cantibus. Coniunx
+est stamina, pro Claros Peneos ad quam: siderea Ityosque **ripis est** suo, pro.
+Pedum regale piscem hoc, sub herbas, paene anxia; fit.""",
     'publish': True,
 }, {
     'title': 'Felix aut quod novum ferro ab Venerem',
@@ -108,6 +112,10 @@ aristas Nec una ingens nactus habenas lues regnum hinc: hora.
 [Peneiaque utque Veneris]: http://news.ycombinator.com/
 [sanguine]: http://zombo.com/""",
 
+    'description': """
+Lorem markdownum pulcherrime simul arces volucris pervenit addit at quam nepotem
+turba. Cui tanti et excutiunt paretur, **aut noctem** inmensos; timidis mea, cum
+haut aratos; tacitos virgo.""",
     'publish': False,
 }, {
     'title': 'Erat ausim',
@@ -182,6 +190,10 @@ eloquioque** tumultus ignis.
 [rumor tu]: http://www.wtfpl.net/
 [totidem]: http://heeeeeeeey.com/""",
 
+    'description': """
+Lorem markdownum Abarin Acasto prosunt coluisse movebere videre visis ego
+quibus, ipsa misit clausit truncum terrent. *Cum* ipsa vocabula, formaene,
+Tereus, est nostrum, in terra indigenae est iuncta.""",
     'publish': True,
 }, {
     'title': 'Euryte Amorum',
@@ -238,6 +250,10 @@ superabitur ruricolae! Sedesque matutinaeque crede!
 
 [est]: http://www.youtube.com/watch?v=MghiBW3r65M""",
 
+    'description': """
+Lorem markdownum, et, *et luminis ultimus*, inque summum lenti mea nec, est.
+Enim plangi Saturnia autem. Hic in agnorunt, sanguine iubet. Caelique exitus;
+sis nec quoque, habentem *Persea auctor*.""",
     'publish': True,
 }, {
     'title': 'Radios missae stupet fecit',
@@ -297,5 +313,9 @@ crudus? Et [qui hostem avem](http://imgur.com/) Boreas Tyrrhenae incursu in
 [egens orbe]: http://haskell.org/
 [qui hostem avem]: http://imgur.com/""",
 
+    'description': """
+Lorem markdownum quid anhelitus heros illa cupidine in deum *saxum* rogat
+*evanuit* numina multum, tinnitibus aeratas primos. Illo aut habent, sero
+titulum frustraque **illo** ieiunia spernitque.""",
     'publish': True,
 }]

@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load i18n staticfiles %}
 
 {% block javascript_head %}
   <script>
@@ -11,30 +12,28 @@
   <script src="//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js" async></script>
 {% endblock %}
 
-{% block stylesheets %}
-  {{ block.super }}
-  <style>
-    body {
-      background-color: #092e20;
-      color: #fff;
-      font-family: "Open Sans", sans-serif;
-      font-size: 1em;
-      line-height: 1.5;
-      margin: 0;
-    }
-    html {
-      font-size: 100%;
-    }
-    .page-body {
-      padding-left: 4em;
-      padding-right: 4em;
-    }
-    .page-header {
-      background-color: #fff;
-      color: #000;
-      padding-left: 4em;
-      padding-right: 4em;
-    }
-  </style>
+{% block header %}
+<header class="page-head">
+  <div class="navbar navbar-inverse" role="navigation">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+          <span class="sr-only">{% trans "Toggle navigation" %}</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="{% url 'home' %}">
+          Django Indonesia
+        </a>
+      </div>
+      <div class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li><a href="#about">{% trans 'About' %}</a></li>
+          <li><a href="#contact">{% trans 'Contact Us' %}</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</header>
 {% endblock %}
-
